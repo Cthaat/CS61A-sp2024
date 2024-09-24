@@ -107,13 +107,9 @@ def repeated(t, k):
     def helper(t, k, prev , now):
         if k == prev:
             return now
-        else:
-            next_num = next(t)
-        if next_num == now:
-            return helper(t, k, prev + 1, next_num)
-        else:
-            return helper(t, k, 1, next_num)
-    return helper(t, k, 1, next(t))
+        elif next(t) == now:
+            
+
 
 def sprout_leaves(t, leaves):
     """Sprout new leaves containing the labels in leaves at each leaf of
@@ -149,9 +145,7 @@ def sprout_leaves(t, leaves):
           2
     """
     "*** YOUR CODE HERE ***"
-    if is_leaf(t):
-        return tree(label(t), [tree(l) for l in leaves])
-    return tree(label(t), [sprout_leaves(b, leaves) for b in branches(t)])
+
 
 def partial_reverse(s, start):
     """Reverse part of a list in-place, starting with start up to the end of
@@ -166,12 +160,8 @@ def partial_reverse(s, start):
     [1, 2, 7, 6, 5, 3, 4]
     """
     "*** YOUR CODE HERE ***"
-    index_of_list = s.index(start) + 1
-    end_index = len(s) - 1
-    while index_of_list < end_index:
-        s[index_of_list], s[end_index] = s[end_index], s[index_of_list]
-        index_of_list += 1
-        end_index -= 1
+
+
 
 # Tree Data Abstraction
 
@@ -237,3 +227,4 @@ def copy_tree(t):
     5
     """
     return tree(label(t), [copy_tree(b) for b in branches(t)])
+

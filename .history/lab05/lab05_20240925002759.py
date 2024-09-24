@@ -173,6 +173,9 @@ def partial_reverse(s, start):
         index_of_list += 1
         end_index -= 1
 
+a = [1, 2, 3, 4, 5, 6, 7]
+partial_reverse(a, 2)
+
 # Tree Data Abstraction
 
 def tree(label, branches=[]):

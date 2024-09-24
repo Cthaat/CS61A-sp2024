@@ -167,11 +167,12 @@ def partial_reverse(s, start):
     """
     "*** YOUR CODE HERE ***"
     index_of_list = s.index(start) + 1
-    end_index = len(s) - 1
-    while index_of_list < end_index:
-        s[index_of_list], s[end_index] = s[end_index], s[index_of_list]
-        index_of_list += 1
-        end_index -= 1
+    size = (len(s) - index_of_list) // 2
+    while :
+        s[index_of_list] , s[len(s) - 1 - i] = s[len(s) - 1 - i], s[index_of_list]
+
+a = [1, 2, 3, 4, 5, 6, 7]
+partial_reverse(a, 2)
 
 # Tree Data Abstraction
 
