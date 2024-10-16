@@ -10,6 +10,7 @@ deploy_to_github:
   script:
     - apk update
     - apk add git  # 安装 Git
+    - git remote set-url remote-origin https://Cthaat:$GITHUB_TOKEN@github.com/Cthaat/CS61A.git
     - git remote -v 
     - git pull origin main
     - git pull remote-origin main
