@@ -10,8 +10,6 @@ deploy_to_github:
   script:
     - apk update
     - apk add git  # 安装 Git
-    - git remote remove origin
-    - git remote remove github
     - git remote add origin http://192.168.2.243:9980/root/cs61a.git
     - git remote add remote-origin https://github.com/Cthaat/CS61A.git
     - git remote -v 
