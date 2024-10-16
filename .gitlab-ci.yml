@@ -13,8 +13,8 @@ deploy_to_github:
     - git remote set-url remote-origin https://Cthaat:$GITHUB_TOKEN@github.com/Cthaat/CS61A.git
     - git remote -v 
     - git pull origin main
-    - git pull remote-origin main
-    - git push remote-origin main
+    - git pull --rebase remote-origin main  # 使用 rebase 方式合并远程更改
+    - git push remote-origin main  # 推送到 GitHub
   only:
     - main
 
