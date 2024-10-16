@@ -1,16 +1,16 @@
-image:  alpine:latest   # 使用最新的 Alpine 镜像
+# image:  alpine:latest   # 使用最新的 Alpine 镜像
 
-deploy_to_github:
-  stage: deploy
-  tags:
-    - mail
-  script:
-    - apk update
-    - apk add git  # 安装 Git
-    - git remote -v 
-    - git pull remote-origin main  # 使用 rebase 方式合并远程更改
-  only:
-    - main
+# deploy_to_github:
+#   stage: deploy
+#   tags:
+#     - mail
+#   script:
+#     - apk update
+#     - apk add git  # 安装 Git
+#     - git remote -v 
+#     - git pull remote-origin main  # 使用 rebase 方式合并远程更改
+#   only:
+#     - main
 
 # notify_success:
 #   stage: notify
