@@ -1,0 +1,56 @@
+image:  alpine:latest   # 使用最新的 Alpine 镜像
+stages:
+  - deploy
+  - notify
+
+deploy_to_github:
+  stage: deploy
+  script:
+    - git config --global user.name "Edge"
+    - git config --global user.email "edge27452696803@gmail.com"
+    - git remote add github https://$GITHUB_TOKEN@github.com/Cthaat/CS61A.git
+    - git push github main
+  only:
+    - main
+
+notify_success:
+  stage: notify
+  tags:
+    - mail
+  before_script:
+    - apk add --no-cache msmtp  # 安装 msmtp
+    - echo "account default" > /etc/msmtprc  # 创建 msmtp 配置文件
+    - echo "host smtp.qq.com" >> /etc/msmtprc  # Gmail SMTP 服务器
+    - echo "port 587" >> /etc/msmtprc  # 使用 TLS
+    - echo "auth on" >> /etc/msmtprc
+    - echo "user $QQ_MAIL" >> /etc/msmtprc  # 替换为您的 Gmail 地址
+    - echo "password $QQ_MAIL_PASSWORD" >> /etc/msmtprc  # 替换为您的应用密码
+    - echo "from $QQ_MAIL" >> /etc/msmtprc  # 替换为您的 Gmail 地址
+    - echo "logfile /var/log/msmtp.log" >> /etc/msmtprc  # 日志文件
+    - echo "tls on" >> /etc/msmtprc  # 启用 TLS
+    - echo "tls_trust_file /etc/ssl/certs/ca-certificates.crt" >> /etc/msmtprc  # 指定 CA 证书
+    - chmod 600 /etc/msmtprc  # 设置权限
+  script:
+    - echo -e "Subject CI/CD Pipeline Success Notification\n\nThe pipeline has succeeded." | msmtp -a default $GMAIL  # 替换为收件人邮箱
+  when: on_success
+
+notify_failure:
+  stage: notify
+  tags:
+    - mail
+  before_script:
+    - apk add --no-cache msmtp  # 安装 msmtp
+    - echo "account default" > /etc/msmtprc  # 创建 msmtp 配置文件
+    - echo "host smtp.qq.com" >> /etc/msmtprc  # Gmail SMTP 服务器
+    - echo "port 587" >> /etc/msmtprc  # 使用 TLS
+    - echo "auth on" >> /etc/msmtprc
+    - echo "user $QQ_MAIL" >> /etc/msmtprc  # 替换为您的 Gmail 地址
+    - echo "password $QQ_MAIL_PASSWORD" >> /etc/msmtprc  # 替换为您的应用密码
+    - echo "from $QQ_MAIL" >> /etc/msmtprc  # 替换为您的 Gmail 地址
+    - echo "logfile /var/log/msmtp.log" >> /etc/msmtprc  # 日志文件
+    - echo "tls on" >> /etc/msmtprc  # 启用 TLS
+    - echo "tls_trust_file /etc/ssl/certs/ca-certificates.crt" >> /etc/msmtprc  # 指定 CA 证书
+    - chmod 600 /etc/msmtprc
+  script:
+    - echo -e "Subject CI/CD Pipeline Failure Notification\n\nThe pipeline has failed. Please check the logs." | msmtp -a default $GMAIL  # 替换为收件人邮箱
+  when: on_failure
