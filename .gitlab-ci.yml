@@ -8,6 +8,8 @@ deploy_to_github:
   tags:
     - mail
   script:
+    - apk update
+    - apk add git  # 安装 Git
     - git config --global user.name "Edge"
     - git config --global user.email "edge27452696803@gmail.com"
     - git remote add github https://$GITHUB_TOKEN@github.com/Cthaat/CS61A.git
