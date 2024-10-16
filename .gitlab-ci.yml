@@ -12,6 +12,8 @@ deploy_to_github:
     - apk add git  # 安装 Git
     - git config --global user.name "Edge"
     - git config --global user.email "edge27452696803@gmail.com"
+    - git config user.name "Edge"
+    - git config user.email "edge27452696803@gmail.com"
     - git push github main
   only:
     - main
