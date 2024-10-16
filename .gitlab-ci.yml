@@ -11,6 +11,7 @@ deploy_to_github:
     - apk update
     - apk add git  # 安装 Git
     - ls -alh
+    - git branch
     - git push github main
   only:
     - main
