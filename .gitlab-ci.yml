@@ -11,6 +11,9 @@ deploy_to_github:
     - apk update
     - apk add git  # 安装 Git
     - git remote -v 
+    - git remote remove origin
+    - git remote remove romote-origin
+    - git remote -v 
     - git remote add origin http://192.168.2.243:9980/root/cs61a.git
     - git remote add remote-origin https://github.com/Cthaat/CS61A.git
     - git remote -v 
