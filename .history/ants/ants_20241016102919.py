@@ -542,6 +542,7 @@ class LaserAnt(ThrowerAnt):
                 self.insects_shot += 1
                 
 
+
 ########
 # Bees #
 ########
