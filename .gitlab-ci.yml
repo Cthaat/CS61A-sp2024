@@ -10,10 +10,8 @@ deploy_to_github:
   script:
     - apk update
     - apk add git  # 安装 Git
-    - ls -alh
-    - git branch
-    - git checkout main  # 创建并切换到 main 分支
-    - git branch
+    - git config pull.rebase false
+    - git pull github main
     - git push github main
   only:
     - main
@@ -57,5 +55,5 @@ notify_failure:
     - echo "tls_trust_file /etc/ssl/certs/ca-certificates.crt" >> /etc/msmtprc  # 指定 CA 证书
     - chmod 600 /etc/msmtprc
   script:
-    - echo -e "Subject CI/CD Pipeline Failure Notification\n\nThe pipeline has failed. Please check the logs." | msmtp -a default $GMAIL  # 替换为收件人邮箱
+    - echo -e "Subject CI/CD Pipeline Failure Notification\n\nThe pipeline has failed. Please check the logs." | msmtp -a default $GMAIL  # 替换为收件人
   when: on_failure
