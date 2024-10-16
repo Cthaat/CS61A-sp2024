@@ -10,7 +10,7 @@ deploy_to_github:
   script:
     - apk update
     - apk add git  # 安装 Git
-    - ls
+    - ls -alh
     - git push github main
   only:
     - main
