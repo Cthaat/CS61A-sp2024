@@ -4,7 +4,7 @@ deploy_to_github:
   tags:
     - mail
   script:
-    - echo "success"
+    - echo "git success"
   only:
     - main
 
