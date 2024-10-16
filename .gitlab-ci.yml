@@ -12,6 +12,8 @@ deploy_to_github:
     - apk add git  # 安装 Git
     - ls -alh
     - git branch
+    - git checkout main  # 创建并切换到 main 分支
+    - git branch
     - git push github main
   only:
     - main
