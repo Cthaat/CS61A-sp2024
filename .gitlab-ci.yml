@@ -5,6 +5,8 @@ stages:
 
 deploy_to_github:
   stage: deploy
+  tags:
+    - mail
   script:
     - git config --global user.name "Edge"
     - git config --global user.email "edge27452696803@gmail.com"
