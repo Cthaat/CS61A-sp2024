@@ -11,7 +11,7 @@ deploy_to_github:
     - apk update
     - apk add git  # 安装 Git
     - git remote -v 
-    - git pull remote-origin main  # 使用 rebase 方式合并远程更改
+    - git pull --rebase remote-origin main  # 使用 rebase 方式合并远程更改
     - git push remote-origin main
   only:
     - main
