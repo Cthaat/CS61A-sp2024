@@ -300,4 +300,3 @@ class ChangeMachine:
         for c in result:
             self.coins = remove_one(self.coins, c)
         return result
-    

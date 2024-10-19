@@ -4,7 +4,7 @@ deploy_to_github:
   tags:
     - mail
   script:
-    - echo "success"
+    - echo "git success"
   only:
     - main
 
@@ -47,5 +47,5 @@ deploy_to_github:
 #     - echo "tls_trust_file /etc/ssl/certs/ca-certificates.crt" >> /etc/msmtprc  # 指定 CA 证书
 #     - chmod 600 /etc/msmtprc
 #   script:
-#     - echo -e "Subject CI/CD Pipeline Failure Notification\n\nThe pipeline has failed. Please check the logs." | msmtp -a default $GMAIL  # 收件人
+#     - echo -e "Subject CI/CD Pipeline Failure Notification\n\nThe pipeline has failed. Please check the logs." | msmtp -a default $GMAIL  # 收件人邮箱
 #   when: on_failure
