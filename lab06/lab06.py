@@ -295,8 +295,9 @@ class ChangeMachine:
         if coin in self.coins:
             self.coins[coin] += 1
         else:
-            self.coins[coin] = 1
+            selfecoins[coin] = 1
         result = make_change(coin, self.coins)
         for c in result:
             self.coins = remove_one(self.coins, c)
         return result
+        
