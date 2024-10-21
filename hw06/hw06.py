@@ -10,6 +10,7 @@ def midsem_survey(p):
     return hashlib.sha224(p.encode('utf-8')).hexdigest()
 
 
+
 class VendingMachine:
     """A vending machine that vends some product for some price.
 
@@ -48,6 +49,35 @@ class VendingMachine:
     'Here is your soda.'
     """
     "*** YOUR CODE HERE ***"
+    def __init__(self, product, price):
+        self.product = product
+        self.price = price
+        self.stock = 0
+        self.balance = 0
+    def vend(self):
+        if self.stock == 0:
+            return 'Nothing left to vend. Please restock.'
+        elif self.balance < self.price:
+            return 'Please add ${} more funds.'.format(self.price - self.balance)
+        else:
+            self.balance -= self.price
+            self.stock -= 1
+            if self.balance == 0:
+                return 'Here is your {}.'.format(self.product)
+            else:
+                change = self.balance
+                self.balance = 0
+                return 'Here is your {} and ${} change.'.format(self.product, change)
+    def add_funds(self, amount):
+        if self.stock == 0:
+            return 'Nothing left to vend. Please restock. Here is your ${}.'.format(amount)
+        else :
+            self.balance += amount
+            return 'Current balance: ${}'.format(self.balance)
+    def restock(self, amount):
+        self.stock += amount
+        return 'Current {} stock: {}'.format(self.product, self.stock)
+    
 
 
 def store_digits(n):
@@ -68,7 +98,12 @@ def store_digits(n):
     >>> print("Do not use str or reversed!") if any([r in cleaned for r in ["str", "reversed"]]) else None
     """
     "*** YOUR CODE HERE ***"
-
+    def store_digits_helper(n, prev=Link.empty):
+        if n == 0:
+            return prev
+        else:
+            return store_digits_helper(n // 10, Link(n % 10, prev))
+    return store_digits_helper(n)
 
 def deep_map_mut(func, lnk):
     """Mutates a deep link lnk by replacing each item found with the

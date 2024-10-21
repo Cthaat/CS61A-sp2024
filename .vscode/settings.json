@@ -1,5 +1,20 @@
 {
     "cSpell.words": [
         "gamestate"
-    ]
+    ],
+    "vim.cursorStylePerMode": {
+        "normal": {
+            "textDecoration": "underline; background-color: blue"
+        },
+        "insert": {
+            "textDecoration": "block; background-color: blue"
+        }
+    },
+    "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#22bfc4",
+    "editorCursor.background": "#000000",
+    "vim.normalModeCursorForeground": "#0000FF",
+    "vim.normalModeCursorBackground": "#000000"
+    }
+
 }
