@@ -125,7 +125,13 @@ def deep_map_mut(func, lnk):
     <9 <16> 25 36>
     """
     "*** YOUR CODE HERE ***"
-
+    if lnk is Link.empty:
+        return
+    elif isinstance(lnk.first, Link):
+        deep_map_mut(func, lnk.first)
+    else:
+        lnk.first = func(lnk.first)
+    deep_map_mut(func, lnk.rest)
 
 def two_list(vals, counts):
     """
@@ -146,6 +152,18 @@ def two_list(vals, counts):
     Link(1, Link(1, Link(3, Link(3, Link(2)))))
     """
     "*** YOUR CODE HERE ***"
+    # 反转数组
+    vals = vals[::-1]
+    counts = counts[::-1]
+    def two_list_helper(vals, counts, prev=Link.empty):
+        if len(vals) == 0:
+            return prev
+        else:
+            for i in range(counts[0]):
+                prev = Link(vals[0], prev)
+            return two_list_helper(vals[1:], counts[1:], prev)
+    return two_list_helper(vals, counts)
+
 
 
 class Link:
