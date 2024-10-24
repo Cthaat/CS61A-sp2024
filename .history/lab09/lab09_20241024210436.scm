@@ -43,7 +43,7 @@
 
 (define (gcd a b) 
   (
-    if  (zero? b) a
+    if (zero? b) a
         (if (zero? a) b
             (if (= (modulo (max a b) (min a b)) 0)
                 (min a b)

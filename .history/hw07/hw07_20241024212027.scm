@@ -19,4 +19,4 @@
 
 (define (cadr s) (car (cdr s)))
 
-(define (caddr s) (car (cddr s)))
+(define (caddr s) )

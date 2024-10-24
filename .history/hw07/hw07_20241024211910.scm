@@ -17,6 +17,6 @@
 
 (define (cddr s) (cdr (cdr s)))
 
-(define (cadr s) (car (cdr s)))
+(define (cadr s) 'YOUR-CODE-HERE)
 
-(define (caddr s) (car (cddr s)))
+(define (caddr s) 'YOUR-CODE-HERE)

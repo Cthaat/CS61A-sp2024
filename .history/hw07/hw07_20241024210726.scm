@@ -4,7 +4,6 @@
   (if (zero? exp) 1
       (if (even? exp)
           (square (pow base (/ exp 2)))
-          (* base (pow base (- exp 1)))
       )
   )
 )
@@ -12,11 +11,11 @@
 (define (repeatedly-cube n x)
   (if (zero? n)
       x
-      (let ((y (repeatedly-cube (- n 1) x)))
+      (let (_________________)
         (* y y y))))
 
 (define (cddr s) (cdr (cdr s)))
 
-(define (cadr s) (car (cdr s)))
+(define (cadr s) 'YOUR-CODE-HERE)
 
-(define (caddr s) (car (cddr s)))
+(define (caddr s) 'YOUR-CODE-HERE)
