@@ -85,11 +85,7 @@ class FreeChecking(Account):
             self.balance = self.balance - amount
             if self.free_withdrawals > 0:
                 self.free_withdrawals -= 1
-            elif self.balance >= self.withdraw_fee:
-                self.balance = self.balance - self.withdraw_fee
-            else:
-                self.balance += amount
-                return "Insufficient funds"
+            else
         return self.balance
 
 
@@ -110,13 +106,7 @@ def duplicate_link(s, val):
     Link(1, Link(2, Link(2, Link(2, Link(2, Link(3))))))
     """
     "*** YOUR CODE HERE ***"
-    if s is Link.empty:
-        return
-    if s.first == val:
-        s.rest = Link(val, s.rest)
-        duplicate_link(s.rest.rest, val)
-    else:
-        duplicate_link(s.rest, val)
+
 
 class Link:
     """A linked list.
@@ -159,5 +149,3 @@ class Link:
             self = self.rest
         return string + str(self.first) + '>'
 
-x = Link(5, Link(4, Link(5)))
-duplicate_link(x, 5)

@@ -114,9 +114,7 @@ def duplicate_link(s, val):
         return
     if s.first == val:
         s.rest = Link(val, s.rest)
-        duplicate_link(s.rest.rest, val)
-    else:
-        duplicate_link(s.rest, val)
+    duplicate_link(s.rest, val)
 
 class Link:
     """A linked list.
