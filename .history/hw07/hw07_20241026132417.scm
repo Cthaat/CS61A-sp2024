@@ -52,14 +52,4 @@
     nil
     (append 
       (nonempty-subsets (cdr s))
-      (map 
-        (lambda (t) (cons (car s) t))
-        (nonempty-subsets (cdr s)))
-      (list (list (car s))))))
-
-(define (even-sub s)
-  (filter 
-    (lambda (x)
-      (even? 
-        (apply + x)))
-    (nonempty-subsets s)))
+      )))

@@ -59,7 +59,4 @@
 
 (define (even-sub s)
   (filter 
-    (lambda (x)
-      (even? 
-        (apply + x)))
-    (nonempty-subsets s)))
+    (lambda (x) ())))

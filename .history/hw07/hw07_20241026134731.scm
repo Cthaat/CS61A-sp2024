@@ -61,5 +61,4 @@
   (filter 
     (lambda (x)
       (even? 
-        (apply + x)))
-    (nonempty-subsets s)))
+        (apply + x)))))

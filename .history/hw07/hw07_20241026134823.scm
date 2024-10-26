@@ -62,4 +62,4 @@
     (lambda (x)
       (even? 
         (apply + x)))
-    (nonempty-subsets s)))
+    nonempty-subsets ))

@@ -30,9 +30,7 @@
         (if (even? (car s))
           (even-subsets (cdr s))
           (odd-subsets (cdr s))))
-      (if (even? (car s))
-        (list (list (car s)))
-        nil))))
+      (if (even? (car s))))))
 
 (define (odd-subsets s) 
   (if (null? s)
@@ -45,21 +43,4 @@
           (odd-subsets (cdr s))))
       (if (odd? (car s))
         (list (list (car s)))
-        nil))))
-
-(define (nonempty-subsets s)
-  (if (null? s)
-    nil
-    (append 
-      (nonempty-subsets (cdr s))
-      (map 
-        (lambda (t) (cons (car s) t))
-        (nonempty-subsets (cdr s)))
-      (list (list (car s))))))
-
-(define (even-sub s)
-  (filter 
-    (lambda (x)
-      (even? 
-        (apply + x)))
-    (nonempty-subsets s)))
+        nil)))))
