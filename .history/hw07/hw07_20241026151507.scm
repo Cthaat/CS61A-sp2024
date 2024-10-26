@@ -67,9 +67,7 @@
 (define (composed f g) 
   (lambda (x) (f (g x))))
 
-(define (reduce f s a)
+(define (reduce f a s)
   (if (null? s)
-    a
-    (let
-      ((rest (car s)))
-      (reduce f (cdr s) (f rest a)))))
+    nil
+    (composed f (reduce f ) ))))

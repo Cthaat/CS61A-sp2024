@@ -68,8 +68,6 @@
   (lambda (x) (f (g x))))
 
 (define (reduce f s a)
-  (if (null? s)
+  (if (null? f)
     a
-    (let
-      ((rest (car s)))
-      (reduce f (cdr s) (f rest a)))))
+    ))

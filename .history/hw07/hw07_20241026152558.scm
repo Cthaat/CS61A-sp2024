@@ -71,5 +71,5 @@
   (if (null? s)
     a
     (let
-      ((rest (car s)))
-      (reduce f (cdr s) (f rest a)))))
+      (rest (car s))
+      (reduce f (cdr s) (f rest (car s))))))
