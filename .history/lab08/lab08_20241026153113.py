@@ -1,16 +1,8 @@
 from operator import mul ,add
 
-def reduce (f , s , initial):
-    for i in s:
-        initial = f(initial,i)
-    return initial
+def reduce (f , s ,)
 
-def reduce_re(f, s, initial):
-    if not s:
-        return initial
-    else:
-        first = s[0]
-        return reduce_re(f, s[1:], f(first, initial))
+
 
 
 

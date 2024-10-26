@@ -1,19 +1,3 @@
-from operator import mul ,add
-
-def reduce (f , s , initial):
-    for i in s:
-        initial = f(initial,i)
-    return initial
-
-def reduce_re(f, s, initial):
-    if not s:
-        return initial
-    else:
-        first = s[0]
-        return reduce_re(f, s[1:], f(first, initial))
-
-
-
 def cumulative_mul(t):
     """Mutates t so that each node's label becomes the product of its own
     label and all labels in the corresponding subtree rooted at t.

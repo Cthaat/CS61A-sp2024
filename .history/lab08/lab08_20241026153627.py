@@ -6,11 +6,7 @@ def reduce (f , s , initial):
     return initial
 
 def reduce_re(f, s, initial):
-    if not s:
-        return initial
-    else:
-        first = s[0]
-        return reduce_re(f, s[1:], f(first, initial))
+    
 
 
 
