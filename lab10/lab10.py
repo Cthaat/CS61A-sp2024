@@ -14,20 +14,20 @@ def calc_eval(exp):
     3
     """
     if isinstance(exp, Pair):
-        operator = ____________ # UPDATE THIS FOR Q2
-        operands = ____________ # UPDATE THIS FOR Q2
+        operator = exp.first # UPDATE THIS FOR Q2
+        operands = exp.rest # UPDATE THIS FOR Q2
         if operator == 'and': # and expressions
             return eval_and(operands)
         elif operator == 'define': # define expressions
             return eval_define(operands)
         else: # Call expressions
-            return calc_apply(___________, ___________) # UPDATE THIS FOR Q2
+            return calc_apply(calc_eval(operator), operands.map(calc_eval))
     elif exp in OPERATORS:   # Looking up procedures
         return OPERATORS[exp]
     elif isinstance(exp, int) or isinstance(exp, bool):   # Numbers and booleans
         return exp
-    elif _________________: # CHANGE THIS CONDITION FOR Q4
-        return _________________ # UPDATE THIS FOR Q4
+    elif exp in bindings: # CHANGE THIS CONDITION FOR Q4
+        return bindings[exp] # UPDATE THIS FOR Q4
 
 def calc_apply(op, args):
     return op(args)
@@ -52,6 +52,13 @@ def floor_div(args):
     20
     """
     "*** YOUR CODE HERE ***"
+    if len(args) == 2:
+        return args.first // args.rest.first
+    else:
+        args.first = args.first // args.rest.first
+        args.rest = args.rest.rest
+        return floor_div(args)
+
 
 scheme_t = True   # Scheme's #t
 scheme_f = False  # Scheme's #f
@@ -74,6 +81,16 @@ def eval_and(expressions):
     True
     """
     "*** YOUR CODE HERE ***"
+    if expressions is nil:
+        return scheme_t
+    else:
+        if calc_eval(expressions.first) is scheme_f:
+            return scheme_f
+        else:
+            if expressions.rest is nil:
+                return calc_eval(expressions.first)
+            else:
+                return eval_and(expressions.rest)
 
 bindings = {}
 
@@ -93,6 +110,10 @@ def eval_define(expressions):
     2
     """
     "*** YOUR CODE HERE ***"
+    symbols = expressions.first
+    value = calc_eval(expressions.rest.first)
+    bindings[symbols] = value
+    return symbols
 
 OPERATORS = { "//": floor_div, "+": addition, "-": subtraction, "*": multiplication, "/": division }
 
