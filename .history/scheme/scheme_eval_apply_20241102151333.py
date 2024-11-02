@@ -97,7 +97,6 @@ def eval_all(expressions, env):
     if expressions.rest is nil:
         return res
     else:
-        return eval_all(expressions.rest, env)
     # END PROBLEM 6
 
 

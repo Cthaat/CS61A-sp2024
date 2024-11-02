@@ -94,10 +94,7 @@ def eval_all(expressions, env):
     if expressions is nil:
         return None
     res = scheme_eval(expressions.first, env)
-    if expressions.rest is nil:
-        return res
-    else:
-        return eval_all(expressions.rest, env)
+    if 
     # END PROBLEM 6
 
 
