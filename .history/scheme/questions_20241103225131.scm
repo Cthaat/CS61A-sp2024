@@ -12,9 +12,7 @@
       (define (helper input index) 
         (if (null? input) '()            ;; base case: return () if it is nil
               (cons (cons 
-                      index 
-                      (cons (car input) 
-                      nil))
+                      index (cons (car input) nil))
                     (helper 
                       (cdr input) (+ index 1)))))   ;; recursive call
       (helper s 0)))

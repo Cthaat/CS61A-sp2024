@@ -11,12 +11,9 @@
       ;; a helper funtion
       (define (helper input index) 
         (if (null? input) '()            ;; base case: return () if it is nil
-              (cons (cons 
-                      index 
-                      (cons (car input) 
-                      nil))
+              (cons (cons index (cons (car input) nil))
                     (helper 
-                      (cdr input) (+ index 1)))))   ;; recursive call
+                    (cdr input) (+ index 1)))))   ;; recursive call
       (helper s 0)))
   ; END PROBLEM 15
 
