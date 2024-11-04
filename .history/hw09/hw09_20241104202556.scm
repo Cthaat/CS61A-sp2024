@@ -8,19 +8,13 @@
   (if
     (null? args)
     curry
-    (curry-consume (curry (car args)) (cdr args))))
+    (curry-consume (curry ))))
 
 (define-macro (switch expr options)
   (switch-to-cond (list 'switch expr options)))
 
-(define-macro (switch expr options) (switch-to-cond (list 'switch expr options)))
-
 (define (switch-to-cond switch-expr)
-  (cons
-    'cond
-    (map
-      (lambda (option)
-        (cons 
-          `(equal? ,(car (cdr switch-expr)) ,(car option))
-          (cdr option)))
-      (car (cdr (cdr switch-expr))))))
+  (cons _________
+        (map (lambda (option)
+               (cons _______________ (cdr option)))
+             (car (cdr (cdr switch-expr))))))

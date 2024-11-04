@@ -21,6 +21,6 @@
     (map
       (lambda (option)
         (cons 
-          `(equal? ,(car (cdr switch-expr)) ,(car option))
+          `(equal? (car (cdr switch-expr)))
           (cdr option)))
-      (car (cdr (cdr switch-expr))))))
+      ())))
