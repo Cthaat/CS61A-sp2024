@@ -40,7 +40,7 @@ CREATE TABLE sharing AS
   WHERE a.hall = b.hall AND a.course != b.course GROUP BY a.course;
 
 CREATE TABLE pairs AS
-    SELECT a.room || " and " || b.room || " together have " || (a.seats + b.seats) || " seats" AS rooms
-    FROM sizes AS a, sizes AS b WHERE a.room < b.room AND a.seats + b.seats >= 1000
-    ORDER BY a.seats + b.seats DESC;
+    SELECT _____ || " and " || _____ || " together have " || (_____) || " seats" AS rooms
+    FROM sizes AS a, sizes AS b WHERE a
+    ORDER BY a.seats DESC;
 

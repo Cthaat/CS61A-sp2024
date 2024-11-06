@@ -35,12 +35,10 @@ CREATE TABLE remaining AS
     FROM sizes, finals WHERE room = hall GROUP BY course;
 
 CREATE TABLE sharing AS
-  SELECT a.course, COUNT(DISTINCT a.hall) AS shared
+  SELECT course, COUNT(DISTINCT course) AS shared
   FROM finals AS a, finals AS b
-  WHERE a.hall = b.hall AND a.course != b.course GROUP BY a.course;
+  WHERE a. GROUP BY _____;
 
 CREATE TABLE pairs AS
-    SELECT a.room || " and " || b.room || " together have " || (a.seats + b.seats) || " seats" AS rooms
-    FROM sizes AS a, sizes AS b WHERE a.room < b.room AND a.seats + b.seats >= 1000
-    ORDER BY a.seats + b.seats DESC;
+  SELECT "REPLACE THIS LINE WITH YOUR SOLUTION";
 
